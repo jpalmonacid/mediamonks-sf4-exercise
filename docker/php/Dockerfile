@@ -18,7 +18,7 @@ ENV HOME_PATH /home/${APP_USER}
 RUN adduser -u ${PUID} -h ${HOME_PATH} -D ${APP_USER}
 
 ###########################################################################
-# Composer
+# composer
 ###########################################################################
 
 RUN export EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)" \
@@ -38,4 +38,4 @@ WORKDIR ${APP_PATH}
 
 EXPOSE 8000
 
-CMD ["bin/console", "server:run"]
+CMD ["bin/console", "server:run", "-n", "0.0.0.0:8000"]
